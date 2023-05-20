@@ -8,3 +8,12 @@
      console.log(jsonData["data"]);
 }
 
+
+
+function addPost()
+display(() => {
+  let myDiv = document.createElement("div");
+  myDiv.innerText = ricerca.title ;
+
+
+})
