@@ -13,15 +13,27 @@ async function search() {
     .then((responseJson) => {
       console.log(responseJson)
       let resultsDiv = document.getElementById("risultati")
+     
       for (let i = 0; i < responseJson.data.length; i++) {
-        let myCard = document.createElement("div.card")
-
-        myCard.innerHTML = responseJson.data[i].title;
-        resultsDiv.appendChild(myCard)
+        let myCard = document.createElement("div");
+        myCard.classList.add("card");
+        //   myCard.innerHTML = responseJson.data[i].title;
+        
+       //   resultsDiv.appendChild(myCard)
+       // }
+      
+        let title = responseJson.data[i].title;
+        let cover = responseJson.data[i].cover;
+      
+        let htmlContent = '<h5>' + title + '</h5>';
+        htmlContent += '<img src="' + cover + '" alt="Cover">';
+      
+        myCard.innerHTML = htmlContent;
+        resultsDiv.appendChild(myCard);
       }
+      
     })
     .catch((error) => {
       console.log(error)
     });
 }
-
